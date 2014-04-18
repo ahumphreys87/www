@@ -65,6 +65,10 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
+
+  # enable pretty urls
+  activate :directory_indexes
+
   # For example, change the Compass output style for deployment
   activate :minify_css
 
@@ -75,12 +79,10 @@ configure :build do
   activate :cache_buster
 
   # Enable asset pipeline
-  activate :asset_hash, ignore: ['favicon.png', '/images/og-standard.jpg', /downloads\/*/]
+  activate :asset_hash, ignore: ['/docs/docco.css', 'favicon.png', '/images/og-standard.jpg', /downloads\/*/]
 
   # Use relative URLs
   activate :relative_assets
-
-  activate :directory_indexes
 
   # Compress PNGs after build
   # require "middleman-smusher"
